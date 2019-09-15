@@ -12,9 +12,10 @@ class HttpToS3 {
 
     // If a pre-configured S3 client is provided, use it
     if (s3) {
-      if (!(s3 instanceof S3)) {
-        throw new Error("Invalid S3 client provided");
-      }
+      // for some reason, this sometimes fails even though a valid instance of S3 is given
+      // if (!(s3 instanceof S3)) {
+      //   throw new Error("Invalid S3 client provided");
+      // }
 
       this.S3Client = s3;
     } else {
